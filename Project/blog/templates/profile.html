@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h2>{{ username }}'s profile</h2>
+<img src="{{pic_url}}" width="90" height="100" float="right">
+<h4>{{userbio}}<h4>
+{% if session.username %}
+
+    {% if session.username == username %}
+
+        <h3> Change Details</h3>
+          <br>
+            <a class="link" href="{{ url_for('change_user_tags', username=session.username) }}">Change followed tags.</a>
+          <br><br>
+            <a class="link" href="{{ url_for('change_password', username=session.username) }}">Change password.</a>
+          <br><br>
+            <a class="link" href="{{ url_for('change_bio', username=session.username) }}">Change bio.</a>
+		      <br><br>
+            <a class="link" href="{{ url_for('upload_file', username=session.username) }}">Upload new Profile Picture.</a>
+          <br><br>
+        <h3>Bookmarked questions:</h3>
+          <br>
+            <a class="link" href="{{ url_for('show_bookmarked', username=session.username) }}">Click to view bookmarked questions.</a>
+          <br><br>
+        <h3>Search for user:</h3>
+          <form action="{{ url_for('user_search', username=session.username) }}" method="post">
+            <dl>
+              <dt>Username:</dt>
+              <dd><input class="inp" type="text" name="user"></dd>
+            </dl>
+            <input class="btn" type="submit" value="Submit">
+      	</form>
+        <h3>Suggested follows:</h3>
+
+          {% for user in recommend_users %}
+            <p>
+            <a class="link" href="{{ url_for('profile', username=user.username) }}">{{ user.username }}</a>
+            </p>
+          {% else %}
+            <p>There aren't any suggested users at the moment.</p>
+          {% endfor %}
+        <h3>Timeline Feed</h3>
+          <br>
+            <a class="link" href="{{ url_for('timeline', username=session.username) }}">Click to view followed questions, based on most recent.</a>
+          <br><br>
+        <h3>Voteline Feed</h3>
+          <br>
+            <a class="link" href="{{ url_for('voteline', username=session.username) }}">Click to view followed questions, based on most popular.</a>
+          <br><br>
+        <h3>Follow Feed</h3>
+          <br>
+            <a class="link" href="{{ url_for('feedline', username=session.username) }}">Click to view who those you are following, are following.</a>
+          <br><br>
+        <h3>Your recent posts:</h3>
+
+    {% else %}
+    <br><br>
+    <a class="link" href="{{ url_for('follow_user', username=username) }}">Follow</a><br>
+    <br><br>
+    <h3> Who does {{username}} follow?</h3>
+    <br>
+    <a class="link" href="{{ url_for('open_follow', username=username) }}">Click here to see.</a>
+    <br><br>
+
+
+  <h3>{{ username }}'s recent posts:</h3>
+
+    {% endif %}
+    {% include "display_posts.html" %}
+{% else %}
+  <h2> You must be logged in to view user profiles.</h2>
+{% endif %}
+
+
+
+{% endblock %}

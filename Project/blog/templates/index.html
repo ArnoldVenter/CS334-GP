@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h2>Home</h2>
+  {% if session.username %}
+    <h3>Share New Question</h3>
+    <form action="{{ url_for('add_question') }}" method="post">
+        <dl>
+            <dt>Title:</dt>
+            <dd><input class="inp" type="text" size="30" name="title"></dd>
+            <dt>Tags:</dt>
+            <dd>
+              <div class="container">
+                <label class="lbl"><input type="checkbox" name="art">Art</label>
+                <label class="lbl"><input type="checkbox" name="exercise">Exercise</label>
+                <label class="lbl"><input type="checkbox" name="food">Food</label>
+                <label class="lbl"><input type="checkbox" name="hobbies">Hobbies</label>
+                <label class="lbl"><input type="checkbox" name="lifestyle">Lifestyle</label>
+                <label class="lbl"><input type="checkbox" name="music">Music</label>
+                <label class="lbl"><input type="checkbox" name="nature">Nature</label>
+                <label class="lbl"><input type="checkbox" name="psychology">Psychology</label>
+                <label class="lbl"><input type="checkbox" name="relationships">Relationships</label>
+                <label class="lbl"><input type="checkbox" name="technology">Technology</label>
+              </div>
+            </dd>
+            <dt>Text:</dt>
+            <dd><textarea class="inp" name="text" rows="5"></textarea></dd>
+        </dl>
+        <input class="btn" type="submit" value="Share">
+    </form>
+  {% endif %}
+
+<br>
+
+<h3>Today's Recent Questions</h3>
+{% include "display_posts.html" %}
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h2>Change Bio</h2>
+	<form action="{{ url_for('change_bio', username=session.username) }}" method="post">
+    <dl>
+        <dt>New bio:</dt>
+        <dd><input class="inp" type="text" name="bio" rows="5"></dd>
+    </dl>
+    <input class="btn" type="submit" value="Submit">
+	</form>
+{% endblock %}

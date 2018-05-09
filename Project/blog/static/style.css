@@ -1,0 +1,163 @@
+body            {
+  font-family: sans-serif;
+  background: #555555;
+}
+a, h1, h3       { color: #4578ba; }
+h1, h2, h3      { font-family: 'Courier', serif; margin: 0; }
+h1, h2          { border-bottom: 2px solid #2d4a6d; padding: 3px; }
+h3              { padding: 3px; }
+dd              { display: block; margin-left: 0px; }
+dl              { font-weight: bold; }
+
+/*a:visited 		{ color: #800080; }*/  /*NOTE: Annoys the hell out of me during testing. Can add back in but is unneeded.*/
+
+/* The background image for the body. */
+/* Change URL to change picture, but DO NOT change the folder. The image */
+/* works best out of the static folder */
+.bgimg {
+    background-image: url('/static/bg1.png');
+    height: 100%; /* For 100% screen height */
+    width:  100%; /* For 100% screen width */
+
+    background-position: center;
+    background-size: cover;
+    overflow:inherit;
+    overflow-x: hidden;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+
+}
+
+/* The centered container containing everything. Can change color or sizing.
+Be wary, changing size may have repercussions. */
+.page           {
+  margin-top: 2em auto;
+  margin-bottom: 2em auto;
+  margin: auto; /*Dont change, keeps it centered.*/
+  width: 50%;
+  min-width: 300px; /*Dont change, otherwise elements overlap when screen is very small.*/
+  border: 5px solid #1d273d;
+  border-radius: 25px;
+  padding: 0.8em;
+  background: #aaa;
+}
+
+
+/*For the unordered lists all questions and answers are displayed in. Dont change, see below.*/
+.posts          {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/*For the list items all questions and answers are displayed in. Dont change, see below.*/
+.posts li       {
+  margin: 0.8em 1.2em;
+}
+/*For the list item headers all questions and answers user. Can change, but see below.*/
+.posts li h2    {
+  margin-left: -1em;
+}
+/*Navigation. Can change*/
+.metanav        {
+  text-align: right;
+  font-size: 0.8em;
+  padding: 10px;
+  margin-bottom: 1em;
+  background: #555555;
+  font-family: 'Courier', serif;
+  color: #a8c4d2;
+}
+/*For all messages flashed to screen. Can change*/
+.flash          {
+  background: #cee5F5;
+  padding: 0.5em;
+  border: 1px solid #aacbe2;
+  border-radius: 10px;
+  font-family: 'Courier', serif;
+}
+/*For all errors displayed. Can change. Not really used*/
+.error          {
+  background: #f0d6d6;
+  padding: 0.5em;
+  font-family: 'Courier', serif;
+}
+/*Used for all hyperlinks, to make them look like buttons. Can change.*/
+/* NOTE: Core component */
+.link {
+  border: 2px solid black;
+  border-radius: 5px;
+  background: #646767;
+  color: white;
+  padding: 5px;
+  margin-bottom: 2px;
+  font-family: 'Courier', serif;
+  text-decoration: none;
+}
+/*Used for all input. Can change.*/
+/* NOTE: Core component */
+.inp {
+  width: 90%;
+  max-width: 400px;
+  border: 2px solid white;
+  border-radius: 5px;
+  background: #464646;
+  color: white;
+  padding: 5px;
+  font-family: 'Courier', serif;
+}
+/*Used for all labels. Labels are only used to contain and style checkboxes. Can change.*/
+/* NOTE: Core component */
+.lbl {
+  border: 2px solid white;
+  border-radius: 5px;
+  background: #555555;
+  color: white;
+  padding: 5px;
+  min-width:50px;
+  display: inline-block;
+  margin: 2px;
+  min-height:15px;
+  font-family: 'Courier', serif;
+
+}
+/*Used for all buttons. Can change.*/
+/* NOTE: Core component */
+.btn {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: 'Courier', serif;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+/*Used for all questions. Draws a border around the question and gives it a different
+background color. Can change.*/
+/* NOTE: Core component */
+.question {
+  border: 2px solid #377ba8;
+  border-radius: 5px;
+  background: #DDDDDD;
+  color: black;
+  padding: 5px;
+  min-width:50px;
+  display: inline-block;
+  margin: 2px;
+  min-height:15px;
+  font-family: 'Courier', serif;
+}
+
+/* Used to keep the checkboxes in places so they act responsively. Surrounds all
+groups of checkboxes. */
+div.container {
+  min-width:245px;
+  width:80%;
+  border-width: 2px 2px 2px 2px;
+  border-radius: 8px;
+  overflow:visible;
+  margin-left:5%;
+  margin-bottom: 15px;
+  background-color: inherit;
+  font-family: 'Courier', serif;
+}

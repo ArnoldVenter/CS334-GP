@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h2>Change Tags</h2>
+	<form action="{{ url_for('change_user_tags', username=session.username) }}" method="post">
+        <label class="lbl"><input type="checkbox" name="art">Art</label>
+        <label class="lbl"><input type="checkbox" name="exercise">Exercise</label>
+        <label class="lbl"><input type="checkbox" name="food">Food</label>
+        <label class="lbl"><input type="checkbox" name="hobbies">Hobbies</label>
+        <label class="lbl"><input type="checkbox" name="lifestyle">Lifestyle</label>
+        <label class="lbl"><input type="checkbox" name="music">Music</label>
+        <label class="lbl"><input type="checkbox" name="nature">Nature</label>
+        <label class="lbl"><input type="checkbox" name="psychology">Psychology</label>
+        <label class="lbl"><input type="checkbox" name="relationships">Relationships</label>
+        <label class="lbl"><input type="checkbox" name="technology">Technology</label>
+        <br>
+        <input class="btn" type="submit" value="Submit">
+	</form>
+{% endblock %}

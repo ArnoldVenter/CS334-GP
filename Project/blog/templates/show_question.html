@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block body %}
+{% if session.username %}
+  <h2>Question</h2>
+  {% include "display_posts.html" %}
+
+  <h2>Answers</h2>
+  {% include "display_answers.html" %}
+
+  <h2>Submit an answer</h2>
+
+  <form action="{{ url_for('add_answer') }}" method="post">
+      <dl>
+          <dt>Answer:</dt>
+          <dd><textarea class="inp" name="text" rows="5"></textarea></dd>
+      </dl>
+      <input class="btn" type="submit" value="Share">
+  </form>
+{% endif %}
+{% if not session.username %}
+<h3> You must be logged in to view answers.</h3>
+{% endif %}
+{% endblock %}

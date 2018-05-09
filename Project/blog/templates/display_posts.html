@@ -1,0 +1,16 @@
+  <ul class="posts">
+  {% for row in questions %}
+    <li>
+      <div class="question">
+    	   <a class="link" href="{{ url_for('show_question', question_id=row.question.id) }}">{{ row.question.title }}</a>
+    	   by <a class="link" href="{{ url_for('profile', username=row.username) }}">{{ row.username }}</a>
+    	   on {{ row.question.date }}
+    	   <a class="link" href="{{ url_for('bookmark_question', question_id=row.question.id) }}">Bookmark</a><br>
+         <br>
+         <i>{{ ", ".join(row.tags) }}</i><br><br>
+    	   {{ row.question.text }}
+      </div>
+  {% else %}
+    <li>There aren't any questions yet!
+  {% endfor %}
+  </ul>

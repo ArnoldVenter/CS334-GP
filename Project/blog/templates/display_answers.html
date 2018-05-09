@@ -1,0 +1,14 @@
+  <ul class="posts">
+  {% for row in answers %}
+    <li>
+      <div class="question">
+    	   <a >Answer</a>
+      	 by <a class="link" href="{{ url_for('profile', username=row.username) }}">{{ row.username }}</a>
+    	   on {{ row.answer.date }}
+    	   <a class="link" href="{{ url_for('upvote_answer', answer_id=row.answer.id) }}">Upvote</a><br>
+    	   {{ row.answer.text }}
+       </div>
+  {% else %}
+    <li>There aren't any answers yet!
+  {% endfor %}
+  </ul>
